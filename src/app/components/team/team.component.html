@@ -1,0 +1,19 @@
+<!-- Start Time -->
+<div class="team__card js-match-height {{className}}">
+    <div class="team__thumbnail">
+        <img [src]="avatar" class="img-fluid" alt="" />
+    </div>
+    <div class="team__content">
+        <div class="team__content--heading">
+            <h4 class="team__name">{{name}}</h4>
+            <span class="team__position">{{title}}</span>
+        </div>
+
+        <ul class="team__network">
+            <li><a [href]="facebookLink" class="team__network--link" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a [href]="twitterkLink" class="team__network--link" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a [href]="linkEdinkLink" class="team__network--link" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+        </ul>
+    </div>
+</div>
+<!-- End Time -->

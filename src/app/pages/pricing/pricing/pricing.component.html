@@ -1,0 +1,62 @@
+<!-- Start Breadcrumb -->
+<app-breadcrumb>
+    <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Page</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Pricing</li>
+</app-breadcrumb>
+<!-- End Breadcrumb -->
+
+<!-- Start Section -->
+<section class="section pt-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{title}}</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <pricing-grid
+                    [title]="priceListDataFirst?.PriceName"
+                    [fontAwesomIcon]="priceListDataFirst?.FontAwesomeIconName"
+                    [price]="priceListDataFirst?.Price"
+                    [className]="priceListDataFirst?.PriceColor ? 'pricing__grid-' + priceListDataFirst?.PriceColor : ''"
+                    [buttonStyle]="priceListDataFirst?.btnStyle"
+                    [priceList]="priceListDataFirst?.PriceList"
+                    [currency]="priceListDataFirst?.Currency"
+                ></pricing-grid>
+            </div>
+            <div *ngFor="let item of priceListDataCenter" class="col-lg-4">
+                <pricing-grid
+                    [title]="item.PriceName"
+                    [fontAwesomIcon]="item.FontAwesomeIconName"
+                    [price]="item.Price"
+                    [className]="item.PriceColor ? 'pricing__grid-' + item.PriceColor : ''"
+                    [buttonStyle]="item.btnStyle"
+                    [priceList]="item.PriceList"
+                    [currency]="item.Currency"
+                ></pricing-grid>
+            </div>
+            <div class="col-lg-4">
+                <pricing-grid
+                    [title]="priceListDataLast?.PriceName"
+                    [fontAwesomIcon]="priceListDataLast?.FontAwesomeIconName"
+                    [price]="priceListDataLast?.Price"
+                    [className]="priceListDataLast?.PriceColor ? 'pricing__grid-' + priceListDataLast?.PriceColor : ''"
+                    [buttonStyle]="priceListDataLast?.btnStyle"
+                    [priceList]="priceListDataLast?.PriceList"
+                    [currency]="priceListDataLast?.Currency"
+                ></pricing-grid>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<call-to-action
+    text="Need help's... Feel fee to contact us"
+    link="contact"
+></call-to-action>
+<!-- End Section -->

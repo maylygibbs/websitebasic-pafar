@@ -1,0 +1,38 @@
+.ngx-pagination{
+    margin: 0;
+    padding: 0;
+
+    li{
+        text-align: center;
+        margin-right: 5px;
+
+        > span{
+            padding: 5px $padding-print;
+            background: $silver-color;
+            color: $text-gray-color;
+        }
+
+        > a{
+            padding: 5px $padding-half;
+            display: block;
+            background: $gray-color;
+            color: $blue-color;
+        }
+
+        &.current{
+            padding: 0;
+
+            > span{
+                background: $blue-color;
+                color: $white-color;
+                padding: 8.5px 15px;
+            }
+        }  
+
+        &.ellipsis{
+            a{
+                background-color: transparent;
+            }
+        } 
+    }
+}

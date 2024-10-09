@@ -1,0 +1,95 @@
+<!-- Start Breadcrumb -->
+<app-breadcrumb>
+    <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">¿Quienes Somos?</li>
+</app-breadcrumb>
+<!-- End Breadcrumb -->
+
+<!-- Start Section -->
+<section class="section pt-40 pb-0">
+    <div class="container">
+        <div class="hero__standout">
+            <img src="/assets/images/quienessomos.jpg" class="img-fluid" alt="Image article" />
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="hero__standout--headline">
+                        <h2 class="section__heading">Bienvenido a Pafar</h2>
+                        <div class="headline">Creamos Soluciones</div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero__standout--content">
+                        <div>
+                            <p>Para nosotros la tecnología, innovación, el capital intelectual y humano es fundamental
+                                para brindar soluciones innovadoras y con calidad. Para ello, disponemos de personal
+                                especializado totalmente comprometido, brindando innovación y excelencia.</p>
+                            <p>Contamos con experiencia y capacidad demostrada en proyectos gubernamentales,
+                                corporativos, desarrollos comerciales, industriales, bancarios y transaccionales.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="section__heading section__heading-center">Visión, Misión y Valores</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <section-column-item iconImage="icon-divice" title="Visión" type="section__column-left"
+                    description="Ser, en el año 2024, una empresa vanguardista e innovadora, en el desarrollo y materialización de soluciones que aporten a la infraestructura tecnológica y/o física, con penetración en productos y servicios especializados en Latino América y el continente Europeo."></section-column-item>
+            </div>
+            <div class="col-lg-4">
+                <section-column-item iconImage="icon-divice" title="Misión" type="section__column-left"
+                    description="Prestar servicios afines a la ingeniería de software, ingeniería aplicada y construcción bajo criterios ecológicos, orientados al bienestar social, el mejoramiento de la calidad de vida y el desarrollo sustentable, con honestidad, equidad y profesionalismo, a través de las capacidades de nuestro talento humano, procesos innovadores y el uso asertivo de la tecnología."></section-column-item>
+            </div>
+            <div class="col-lg-4">
+                <section-column-item iconImage="icon-divice" title="Valores" type="section__column-left"
+                    description="Honestidad, Transparencia, Profesionalismo
+                    Ética, Dedicación">
+                </section-column-item>.
+            </div>
+        </div>
+        <div class="row" hidden>
+            <div class="col-md-12 text-center"><a href="#" class="btn btn-primary btn-rounded btn-stroke">View our
+                    portfolio </a></div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__gray" hidden>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">Meet our team</h2>
+            </div>
+        </div>
+        <div class="owl-active-nav">
+            <div class="owl-carousel js-owl-team">
+                <div *ngFor="let item of teams" class="item">
+                    <team-item [avatar]="baseUrl +  item.attributes?.Image?.data.attributes.url"
+                        [name]="item.attributes.Name" [title]="item.attributes.Title"
+                        [facebookLink]="item.attributes.Facebook" [twitterkLink]="item.attributes.Twitter"
+                        [linkEdinkLink]="item.attributes.Linkedin" className="mb-0"></team-item>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<call-to-action text="Need help's... Feel fee to contact us" link="contact" hidden></call-to-action>
+<!-- End Section -->

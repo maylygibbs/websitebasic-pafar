@@ -1,0 +1,280 @@
+<!-- Start Masthead -->
+<section class="masthead js-masthead-height pb-0">
+    <div class="masthead__style-overlay"></div>
+    <div class="masthead__style-watter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="masthead__content">
+                        <h1 class="masthead__content-title">{{data?.HeroSection.Title}}</h1>
+                        <p class="masthead__content-subtitle">{{data?.HeroSection.Description}}</p>
+                    </div>
+                    <div class="masthead__content">
+                        <a href="#" class="btn btn-orange btn-rounded btn-icon-left btn-lg mb-2 me-1"><i class="fa fa-external-link"></i> View Demo</a>
+                        <a href="#" class="btn btn-primary btn-rounded btn-icon-left btn-lg mb-2 ms-1"><i class="fa fa-download"></i> Download</a>
+                    </div>
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="video__background">
+                        <div class="video__background-wrapper js-video-background-wrapper">
+                            <div id="player" [attr.poster]="baseUrl + data?.HeroSection.Image1.data.attributes.url" data-plyr-provider="youtube" [attr.data-plyr-embed-id]="data?.HeroSection.Embed"></div>
+                        </div>
+                        <img src="assets/images/mackbook-bg@2x.png" class="video__background-image js-video-background-image" alt="" />
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Masthead -->
+
+<!-- Start Section -->
+<section class="section pb-0 offset-top-160">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="tabs">
+                    <ul class="nav tabs__navigation js-tab-carousel js-tabs-navigation" id="myTab" role="tablist">
+                        <li *ngFor="let item of data?.TabSection; let index = index;" class="tabs__navigation-item js-nav-item">
+                            <a class="nav-link tabs__navigation-item--link" [class.active]="index == 0" id="section{{index+1}}-tab" data-bs-toggle="tab" href="#section{{index+1}}" role="tab" [attr.aria-controls]="'section' + (index+1)" aria-selected="true">
+                                <span class="{{item.FontAwesomeIcon}} tabs__navigation-item--icon"></span>
+                                {{item.Text}}
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content tabs__content" id="myTabContent">
+                        <!-- Start tab pane 01 -->
+                        <div class="tab-pane fade show active" id="section1" role="tabpanel" aria-labelledby="section1-tab">
+                            <div class="row">
+                                <div class="col-lg-8 order-lg-4 mb-40">
+                                    <img [src]="baseUrl + data?.Section1.Image1.data.attributes.url" class="img-fluid" [alt]="data?.Section1.Title" />
+                                </div>
+                                <div class="col-lg-4 align-self-center mb-40">
+                                    <h2>{{data?.Section1.Title}}</h2>
+                                    <p>{{data?.Section1.Description}}</p>
+                                    <a [href]="data?.Section1.Link" class="btn btn-primary btn-rounded btn-stroke">Learn more </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End tab pane 01 -->
+
+                        <!-- Start tab pane 02 -->
+                        <div class="tab-pane fade" id="section2" role="tabpanel" aria-labelledby="section2-tab">
+                            <div class="row">
+                                <div class="col-lg-8 order-lg-4 mb-40">
+                                    <img [src]="baseUrl + data?.Section2.Image1.data.attributes.url" class="img-fluid" [alt]="data?.Section2.Title" />
+                                </div>
+                                <div class="col-lg-4 align-self-center mb-40">
+                                    <h2>{{data?.Section2.Title}}</h2>
+                                    <p>{{data?.Section2.Description}}</p>
+                                    <a [href]="data?.Section2.Link" class="btn btn-primary btn-rounded btn-stroke">Learn more </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End tab pane 02 -->
+
+                        <!-- Start tab pane 03 -->
+                        <div class="tab-pane fade" id="section3" role="tabpanel" aria-labelledby="section3-tab">
+                            <div class="row">
+                                <div class="col-lg-8 order-lg-4 mb-40">
+                                    <img [src]="baseUrl + data?.Section3.Image1.data.attributes.url" class="img-fluid" [alt]="data?.Section3.Title" />
+                                </div>
+                                <div class="col-lg-4 align-self-center mb-40">
+                                    <h2>{{data?.Section3.Title}}</h2>
+                                    <p>{{data?.Section3.Description}}</p>
+                                    <a [href]="data?.Section3.Link" class="btn btn-primary btn-rounded btn-stroke">Learn more </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End tab pane 03 -->
+
+                        <!-- Start tab pane 04 -->
+                        <div class="tab-pane fade" id="section4" role="tabpanel" aria-labelledby="section4-tab">
+                            <div class="row">
+                                <div class="col-lg-8 order-lg-4 mb-40">
+                                    <img [src]="baseUrl + data?.Section4.Image1.data.attributes.url" class="img-fluid" [alt]="data?.Section4.Title" />
+                                </div>
+                                <div class="col-lg-4 align-self-center mb-40">
+                                    <h2>{{data?.Section4.Title}}</h2>
+                                    <p>{{data?.Section4.Description}}</p>
+                                    <a [href]="data?.Section4.Link" class="btn btn-primary btn-rounded btn-stroke">Learn more </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End tab pane 04 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section pb-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="owl-active-nav">
+                    <div class="owl-carousel js-owl-clients">
+                         <!-- Start client -->
+                         <div *ngFor="let item of homeService.brands" class="item">
+                            <a [href]="item.attributes.Link" class="client">
+                                <img [src]="baseUrl + item.attributes?.HoverImage?.data.attributes.url" class="client_logo-hover" [attr.alt]="item.attributes.Name" />
+                                <img [src]="baseUrl +  item.attributes?.Image?.data.attributes.url" class="client_logo" [attr.alt]="item.attributes.Name" />
+                            </a>
+                        </div>
+                        <!-- End client -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.Section5.Title}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <p>{{data?.Section5.Description}}</p>
+                <a [href]="data?.Section5.Link" class="btn btn-primary btn-rounded">Find out more</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let item of data?.Features" class="col-lg-4">
+                <section-column-item
+                    iconImage="icon-{{item.Image}}"
+                    [title]="item.Title"
+                    type="section__column-left"
+                    [description]="item.Description"
+                ></section-column-item>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<section-support></section-support>
+
+<!-- Start Section -->
+<section class="section mt-20 pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.PricesTitle}}</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <pricing-grid
+                    [title]="priceListDataFirst?.PriceName"
+                    [fontAwesomIcon]="priceListDataFirst?.FontAwesomeIconName"
+                    [price]="priceListDataFirst?.Price"
+                    [className]="priceListDataFirst?.PriceColor ? 'pricing__grid-' + priceListDataFirst?.PriceColor : ''"
+                    [buttonStyle]="priceListDataFirst?.btnStyle"
+                    [priceList]="priceListDataFirst?.PriceList"
+                    [currency]="priceListDataFirst?.Currency"
+                ></pricing-grid>
+            </div>
+            <div *ngFor="let item of priceListDataCenter" class="col-lg-4">
+                <pricing-grid
+                    [title]="item.PriceName"
+                    [fontAwesomIcon]="item.FontAwesomeIconName"
+                    [price]="item.Price"
+                    [className]="item.PriceColor ? 'pricing__grid-' + item.PriceColor : ''"
+                    [buttonStyle]="item.btnStyle"
+                    [priceList]="item.PriceList"
+                    [currency]="item.Currency"
+                ></pricing-grid>
+            </div>
+            <div class="col-lg-4">
+                <pricing-grid
+                    [title]="priceListDataLast?.PriceName"
+                    [fontAwesomIcon]="priceListDataLast?.FontAwesomeIconName"
+                    [price]="priceListDataLast?.Price"
+                    [className]="priceListDataLast?.PriceColor ? 'pricing__grid-' + priceListDataLast?.PriceColor : ''"
+                    [buttonStyle]="priceListDataLast?.btnStyle"
+                    [priceList]="priceListDataLast?.PriceList"
+                    [currency]="priceListDataLast?.Currency"
+                ></pricing-grid>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section pb-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.Section6.Title}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center mb-40">
+                <p>{{data?.Section6.Description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let item of data?.Section6List" class="col-lg-4">
+                <section-column-item
+                    iconImage="icon-{{item.Image}}"
+                    [title]="item.Title"
+                    type="text-center"
+                    [description]="item.Description"
+                ></section-column-item>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<subscribe-section title="Let's try it's free trail for 30 days"></subscribe-section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__gray-watter--bottom">
+    <div class="container">
+        <div class="row mt-100">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.TestimonialsTitle}}</h2>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <div class="owl-carousel js-owl-testimoni">
+                     <!-- Start testimoni -->
+                     <div *ngFor="let item of homeService.testimonials" class="item">
+                        <div class="testimoni">
+                            <blockquote><p>{{item.attributes.Quote}}</p></blockquote>
+                            <p class="testimoni__author"><a href="#">{{item.attributes.Name}}</a></p>
+                            <a href="#" class="testimoni__avatar">
+                            <img [src]="baseUrl +  item.attributes?.Avatar?.data.attributes.url" class="testimoni__avatar-image" [alt]="item.attributes.Name" /></a>
+                        </div>
+                    </div>
+                    <!-- End testimoni -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ <!-- End Section -->

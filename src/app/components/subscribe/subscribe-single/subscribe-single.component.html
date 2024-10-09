@@ -1,0 +1,40 @@
+<!-- Start Form -->
+<form class="form form__subscribe">
+    <input 
+        type="text" 
+        class="form__subscribe-input form__subscribe-input-green form__subscribe-shadow form__subscribe-rounded" 
+        placeholder="Enter your email" 
+        name="email"
+        [(ngModel)]="email" />
+    <button 
+        type="button" 
+        (click)="subscribeService.postSubscribeNews(email)"
+        [disabled]="subscribeService.isSubmit"
+        class="form__subscribe-button form__subscribe-button-green">
+        {{subscribeService.isSubmit ? "Enviando..." : "Subscríbete"}}
+    </button>
+</form>
+<!-- End Form -->
+
+<!-- Start Toast Success Subscribe -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div 
+        id="subscribeToast" 
+        class="toast align-items-center text-white border-0" 
+        [class.bg-success]="subscribeService.isSuccess"
+        [class.bg-danger]="subscribeService.isFailed"
+        role="alert" 
+        aria-live="assertive" 
+        aria-atomic="true">
+        <div class="d-flex">
+            <div *ngIf="subscribeService.isSuccess" class="toast-body">
+                <strong>Thank you</strong> for subscribe our newsletter
+            </div>
+            <div *ngIf="subscribeService.isFailed" class="toast-body">
+                <strong>Sorry</strong> your request is failed
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+<!-- End Toast Success Subscribe -->

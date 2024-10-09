@@ -1,0 +1,80 @@
+<!-- Start widget 01 -->
+<div class="aside__widget">
+    <div class="advertisement">
+        <span  class="advertisement__label">{{blogShareService.blogInfo?.AdvertisementTitle}}</span>
+        <img [src]="baseUrl + blogShareService.blogInfo?.Advertisement.data.attributes.url" class="img-fluid" alt="" />
+    </div>
+</div>
+<!-- End widget 01 -->
+
+<!-- Start widget 02 -->
+<div class="aside__widget">
+    <h3 class="aside__widget-title">Categories</h3>
+    <div class="aside__widget-content">
+        <ul class="aside__widget-categories">
+            <li>
+                <a [routerLink]="path" [queryParams]="{tag: queryParam.tag}" [class.active]="queryParam.category == ''">All</a>
+            </li>
+            <li *ngFor="let item of categories">
+                <a 
+                    [routerLink]="path" 
+                    [class.active]="queryParam.category == item.attributes.Slug"
+                    [queryParams]="{category: item.attributes.Slug, tag: queryParam.tag}">
+                    {{item.attributes.Name}} ({{item.attributes.counter}})
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- End widget 02 -->
+
+<!-- Start widget 03 -->
+<div class="aside__widget">
+    <h3 class="aside__widget-title">Popular post</h3>
+    <div class="aside__widget-content">
+        <ul class="aside__widget-recent--post">
+            <li *ngFor="let item of popularPost">
+                <img [src]="baseUrl + item.attributes.Image?.data.attributes.formats.thumbnail.url" class="aside__widget-recent--post-thumb" alt="" />
+                <h5 class="aside__widget-recent--post-title"><a [routerLink]="path + '/' + item.attributes.Slug + '_' + item.attributes.uuid">{{item.attributes.Title}}</a></h5>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- End widget 03 -->
+
+<!-- Start widget 04 -->
+<div class="aside__widget">
+    <h3 class="aside__widget-title instagram">Instagram</h3>
+    <div class="aside__widget-content">
+        <ul class="aside__widget-instagram">
+            <li *ngFor="let item of blogShareService.blogInfo?.Instagram.data">
+                <a href="#"><img [src]="baseUrl + item.attributes.url + '?resize=200x200'" alt="" /></a>
+            </li>
+        </ul>
+        <div class="aside__widget-instagram--follow">
+            <label>Follow us :</label> <a href="#">@your_username</a>
+        </div>
+    </div>
+</div>
+<!-- End widget 04 -->
+
+<!-- Start widget 05 -->
+<div class="aside__widget">
+    <h3 class="aside__widget-title">Tags</h3>
+    <div class="aside__widget-content">
+        <ul class="aside__widget-tags">
+            <li>
+                <a [routerLink]="path" [queryParams]="{category: queryParam.category}">All</a>
+            </li>
+            <li *ngFor="let item of tags">
+                <a 
+                    [routerLink]="path" 
+                    [class.active]="queryParam.tag== item.attributes.Slug"
+                    [queryParams]="{tag: item.attributes.Slug, category:queryParam.category}">
+                    {{item.attributes.Label}} ({{item.attributes.counter}})
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- End widget 05 -->

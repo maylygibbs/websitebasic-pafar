@@ -1,0 +1,139 @@
+/*===================================================
+Template Name  : Angular Smooth software company landing page
+Version        : 1.0.0
+Last Update    : 15 Nov  2022
+Author         : Danurstrap
+====================================================*/
+
+/* 
+CSS import - import css file
+======================================================== */
+// @import './assets/css/plugins/bootstrap.min.css';
+// @import './assets/css/plugins/bootstrap.min.css';
+@import './assets/css/plugins/coreNavigation-1.1.3.css';
+@import './assets/css/plugins/owl.carousel.css';
+@import './assets/css/plugins/plyr.css';
+
+/* 
+CSS import - import fonts  
+======================================================== */
+@import './assets/scss/base/fonts';
+
+/*
+BASE - base styles,  variables, typhography, etc
+======================================================== */
+@import './assets/scss/base/variables';
+// @import './assets/scss/base/font-awesome';
+@import './assets/scss/base/icons';
+@import './assets/scss/base/typography';
+@import './assets/scss/base/base';
+@import './assets/scss/base/demo';
+
+/*
+PLUGINS - Scss For javascript plugin
+======================================================== */
+@import './assets/scss/plugins/modal-video';
+@import './assets/scss/plugins/select2';
+@import './assets/scss/plugins/magnific_popup/main';
+@import './assets/scss/plugins/mfp-zoom';
+
+/*
+PARTIALS - Header,  Masthead, Footer, etc
+======================================================== */
+@import './assets/scss/partials/navbar';
+@import './assets/scss/partials/dropdown';
+@import './assets/scss/partials/navbar-responsive';
+@import './assets/scss/partials/megamenu';
+@import './assets/scss/partials/masthead';
+@import './assets/scss/partials/innerhead';
+@import './assets/scss/partials/section';
+@import './assets/scss/partials/footer';
+@import './assets/scss/partials/aside';
+@import './assets/scss/partials/call-to-action';
+@import './assets/scss/partials/back-to-top';
+@import './assets/scss/partials/accordion';
+
+/*
+COMPONENTS - button,  form, slider, etc 
+======================================================== */
+@import './assets/scss/components/form';
+@import './assets/scss/components/select';
+@import './assets/scss/components/button';
+@import './assets/scss/components/column';
+@import './assets/scss/components/pricing';
+@import './assets/scss/components/package';
+@import './assets/scss/components/modal';
+@import './assets/scss/components/tabs';
+@import './assets/scss/components/blockquote';
+@import './assets/scss/components/testimoni';
+@import './assets/scss/components/article';
+@import './assets/scss/components/owl.carousel';
+@import './assets/scss/components/clients';
+@import './assets/scss/components/video';
+@import './assets/scss/components/features';
+@import './assets/scss/components/innerpage';
+@import './assets/scss/components/breadcrumb';
+@import './assets/scss/components/pagination';
+@import './assets/scss/components/advertisement';
+@import './assets/scss/components/hero';
+@import './assets/scss/components/team';
+@import './assets/scss/components/notices';
+
+/*
+Pages - blog,  about, contact, etc 
+======================================================== */
+@import './assets/scss/pages/blog';
+@import './assets/scss/pages/contact';
+@import './assets/scss/pages/career';
+@import './assets/scss/pages/gallery';
+
+
+/*
+Demo - demo style
+======================================================== */
+@import './assets/scss/demo/demo-masthead';
+@import './assets/scss/demo/demo-header';
+@import './assets/scss/demo/demo-main';
+
+/*
+HELPER - helper style
+======================================================== */
+@import './assets/scss/base/helper';
+
+
+/*
+regular style toast
+======================================================== */
+
+@import 'ngx-toastr/toastr';
+
+
+/**
+ * Forms
+ */
+ .form-control.ng-invalid,
+ .form-control.ng-invalid:focus,
+ .form-control-white.ng-invalid,
+ .form-control-white.ng-invalid:focus,
+ ng-select.ng-invalid
+ {
+   &.ng-dirty, &.ng-dirty:focus {
+     border: solid 1px rgba(158, 14, 0, 0.83) !important;
+     border-radius: 0.4rem !important;
+     box-shadow: 0 0 0 .1rem rgba(220,53,69,.25) !important;
+   }
+ }
+
+ .input-group-text{
+   cursor: pointer;
+ }
+
+/*validation*/
+.invalid-feedback {
+    display: block !important;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #d9534f;
+    margin-top: .30rem !important;
+}

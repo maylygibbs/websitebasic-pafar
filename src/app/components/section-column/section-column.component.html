@@ -1,0 +1,27 @@
+<!-- Start Section Column Left Icon -->
+<div *ngIf="type == 'section__column-left'" class="section__column section__column-left {{className}}">
+    <span class="icon {{iconImage}} column-icon"></span>
+    <h4>{{title}}</h4>
+    <p>{{description}}</p>
+</div>
+<!-- End Section Column Left Icon -->
+
+<!-- Start Section Column Center -->
+<div *ngIf="type == 'text-center'" class="section__column text-center {{className}}">
+    <span class="icon {{iconImage}} icon-lg"></span>
+    <h3>{{title}}</h3>
+    <p>{{description}}</p>
+    <a *ngIf="link" [href]="link" class="btn btn-primary btn-rounded btn-stroke">Learn more</a>
+</div>
+<!-- End Section Column Center -->
+
+<!-- Start Section Column Top Left -->
+<div *ngIf="type == 'section__column-top--left'" class="section__column {{className}}">
+    <span class="icon {{iconImage}}"></span>
+    <h4>{{title}}</h4>
+    <p>{{description}}</p>
+    <div *ngIf="link" class="section__column-top--left-action">
+        <a [href]="link" class="btn-link btn-primary">Learn More</a>
+    </div>
+</div>
+<!-- End Section Column Top Left -->

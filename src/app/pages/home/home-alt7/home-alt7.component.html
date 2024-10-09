@@ -1,0 +1,236 @@
+<!-- Start Masthead -->
+<section class="masthead masthead__gradient js-masthead-height">
+    <div class="masthead__gradient-content pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="masthead__content text-center">
+                        <h1 class="masthead__content-title">{{data?.HeroSection.Title}}</h1>
+                        <p class="masthead__content-subtitle">{{data?.HeroSection.Description}}</p>
+                    </div>
+                    <div class="masthead__content text-center">
+                        <a href="javascript:void(0)" class="btn__play btn__play-white btn__play-stroke js-video-button" [attr.data-video-id]="data?.HeroSection.Embed"><i class="fa fa-play"></i> </a>
+                    </div>
+                    <div class="masthead__content text-center">
+                        <a [href]="data?.HeroSection.Link" class="btn btn-white btn-icon-left btn-rounded mr-10 mb-10"><i class="fa fa-download"></i> Try trial 30 Days</a>
+                        <a href="#" class="btn btn-orange btn-icon-left btn-rounded mb-10"><i class="fa fa-shopping-cart"></i> Buy pro licence</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <img [src]="baseUrl + data?.HeroSection.Image1.data.attributes.url" class="img-fluid" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Masthead -->
+
+<!-- Start Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.Section1.Title}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <p>{{data?.Section1.Description}}</p>
+
+                <div class="row mt-40">
+                    <div 
+                        *ngFor="let item of homeService.brands; let index = index;" 
+                        [class.offset-lg-2]="index == 3"
+                        [class.offset-sm-2]="index == 3"
+                        [class.col-sm-6]="index == 4"
+                        [class.offset-lg-4]="index == 5"
+                        [class.offset-sm-4]="index == 5"
+                        class="col-lg-4 col-sm-4">
+                        <a [href]="item.attributes.Link" class="client  mb-30">
+                            <img [src]="baseUrl + item.attributes?.HoverImage?.data.attributes.url" class="client_logo-hover" [attr.alt]="item.attributes.Name" />
+                            <img [src]="baseUrl +  item.attributes?.Image?.data.attributes.url" class="client_logo" [attr.alt]="item.attributes.Name" />
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row mt-20 mb-20">
+                    <div class="col-lg-4 offset-lg-4">
+                        <a href="#" class="btn btn-primary btn-rounded btn-stroke btn-block">Get started now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<section-support></section-support>
+
+<!-- Start Section -->
+<section class="section pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.FeaturesTitle}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let item of data?.Features" class="col-lg-3">
+                <section-column-item
+                    [iconImage]="'icon-' + item.Image"
+                    [title]="item.Title"
+                    type="section__column-top--left"
+                    [link]="item.Link"
+                    [description]="item.Description"
+                    className="section__column-top--left"
+                ></section-column-item>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                    <a href="#" class="btn btn-primary btn-rounded btn-stroke">View More Features</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <h2 class="section__heading section__heading-center">{{data?.Section2.Title}}</h2>
+                <p>{{data?.Section2.Description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center z-index">
+                <img [src]="baseUrl + data?.Section2.Image1.data.attributes.url" class="img-fluid offset-bottom-80" [alt]="data?.Section2.Title" />
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__gray">
+    <div class="container">
+        <div class="row mt-60">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.TestimonialsTitle}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center mb-20">
+                <div class="owl-carousel js-owl-testimoni">
+                    <!-- Start testimoni -->
+                    <div *ngFor="let item of homeService.testimonials" class="item">
+                        <div class="testimoni">
+                            <blockquote><p>{{item.attributes.Quote}}</p></blockquote>
+                            <p class="testimoni__author"><a href="#">{{item.attributes.Name}}</a></p>
+                            <a href="#" class="testimoni__avatar">
+                            <img [src]="baseUrl +  item.attributes?.Avatar?.data.attributes.url" class="testimoni__avatar-image" [alt]="item.attributes.Name" /></a>
+                        </div>
+                    </div>
+                    <!-- End testimoni -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.PriceSection.Title}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center mb-40">
+                <p>{{data?.PriceSection.Description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="pricing">
+                    <!-- Start pricing -->
+                    <pricing-column
+                        [color]="priceListDataFirst?.PriceColor"
+                        [title]="priceListDataFirst?.PriceName"
+                        [fontAwesomIcon]="priceListDataFirst?.FontAwesomeIconName"
+                        [price]="priceListDataFirst?.Price"
+                        className="pp-first"
+                        [priceList]="priceListDataFirst?.PriceList"
+                        [currency]="priceListDataFirst?.Currency"
+                    ></pricing-column>
+                    <ng-container *ngFor="let item of priceListDataCenter;">
+                        <pricing-column
+                            [color]="item.PriceColor"
+                            [title]="item.PriceName"
+                            [fontAwesomIcon]="item.FontAwesomeIconName"
+                            [price]="item.Price"
+                            className="pricing__popular"
+                            [priceList]="item.PriceList"
+                            [currency]="item.Currency"
+                        ></pricing-column>
+                    </ng-container>
+                    <pricing-column
+                        [color]="priceListDataLast?.PriceColor"
+                        [title]="priceListDataLast?.PriceName"
+                        [fontAwesomIcon]="priceListDataLast?.FontAwesomeIconName"
+                        [price]="priceListDataLast?.Price"
+                        className="pp-last"
+                        [priceList]="priceListDataLast?.PriceList"
+                        [currency]="priceListDataLast?.Currency"
+                    ></pricing-column>
+                    <!-- End pricing -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.BlogsTitle}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="owl-carousel js-owl-article">
+                    <!-- Start Blog -->
+                    <div *ngFor="let item of homeService.popularPost" class="item">
+                        <blog-post-grid
+                            [categories]="item.attributes.blog_categories.data"
+                            [title]="item.attributes.Title"
+                            [avatar]="baseUrl + item.attributes.createdBy?.avatar"
+                            [user]="item.attributes.createdBy.firstname + ' ' + item.attributes.createdBy.lastname"
+                            [date]="item.attributes.DisplayDate"
+                            [coverImage]="baseUrl + item.attributes.Image?.data.attributes.formats.medium.url + '?resize=640x250'"
+                            [pageLink]="'/blog/' + item.attributes.Slug + '_' + item.attributes.uuid"
+                        ></blog-post-grid>
+                    </div>
+                    <!-- End Blog -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<call-to-action
+    text="Need help's... Feel fee to contact us"
+    link="contact"
+></call-to-action>
+<!-- End Section -->

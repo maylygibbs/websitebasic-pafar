@@ -1,0 +1,26 @@
+<!-- Start Article -->
+<div class="article__card">
+    <div class="article__card-heading js-match-height">
+        <a 
+            *ngFor="let item of categories; let last = last;" 
+            routerLink="/blog" 
+            [queryParams]="{category: item.attributes.Slug}"
+            class="article__card-label"
+            [class.last]="last">{{item.attributes.Name}}</a>
+        <a href="{{pageLink}}#disqus_thread" class="article__card-comment"><i class="fa fa-comments"></i> {{commentCounter}}</a>
+        <h4 class="article__card-title">
+            <a [routerLink]="pageLink" href="javascript:;">{{title}}</a>
+        </h4>
+    </div>
+    <div class="article__card-image">
+        <img [src]="coverImage" class="img-fluid" alt="Image article" />
+    </div>
+    <div class="article__card-footer">
+        <div class="article__card-author">
+            <img [src]="avatar" class="article__card-avatar" alt="Author Avatar" />
+            <p><strong>Posted by :</strong> <i class="fa fa-user"></i> <a href="#">{{user}}</a></p>
+            <a href="#">{{date}}</a>
+        </div>
+    </div>         
+</div>
+<!-- End Article -->

@@ -1,0 +1,107 @@
+<!-- Start Breadcrumb -->
+<app-breadcrumb className="mb-0">
+    <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Contactenos</li>
+</app-breadcrumb>
+<!-- End Breadcrumb -->
+
+<!-- Start Section -->
+<section class="section section__contact p-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 order-lg-4 js-match-height">
+                <form name="contactForm" #contactForm="ngForm" (ngSubmit)="sendMessage(contactForm)">
+                    <div class="contact__main">
+                        <h2 class="section__heading">Contactenos</h2>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="name">Nombre</label>
+                                <input type="text" [(ngModel)]="name" class="form-control" id="name" name="fullName"
+                                    #fullName="ngModel" placeholder="Indique su nombre completo" required>
+                                <div *ngIf="fullName.invalid && contactForm.submitted" class="invalid-feedback">
+                                    <div *ngIf="fullName.errors?.['required']">Campo es requerido
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label for="emal">Email</label>
+                                <input type="email" [(ngModel)]="email" name="emailUser" #emailUser="ngModel"
+                                    class="form-control" id="emal" aria-describedby="emal"
+                                    placeholder="Indique su email" required>
+                                <div *ngIf="emailUser.invalid && contactForm.submitted" class="invalid-feedback">
+                                    <div *ngIf="emailUser.errors?.['required']">Campo es requerido
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 form-group">
+                                <label for="emal">Teléfono</label>
+                                <input type="email" [(ngModel)]="cell" name="cellUser" #cellUser="ngModel"
+                                    class="form-control" id="emal" aria-describedby="emal"
+                                    placeholder="Indique su email" required>
+                                <div *ngIf="cellUser.invalid && contactForm.submitted" class="invalid-feedback">
+                                    <div *ngIf="cellUser.errors?.['required']">Campo es requerido
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <label for="subject">Asunto</label>
+                                <input class="form-control" id="subject" [(ngModel)]="subject" name="subjectUser"
+                                    #subjectUser="ngModel" aria-describedby="subject" placeholder="Indique el asunto"
+                                    required>
+                                <div *ngIf="subjectUser.invalid && contactForm.submitted" class="invalid-feedback">
+                                    <div *ngIf="subjectUser.errors?.['required']">Campo es requerido
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <label for="comment">Mensaje</label>
+                                <textarea class="form-control" [(ngModel)]="comment" id="comment" name="message"
+                                    #message="ngModel" aria-describedby="comment" rows="8"
+                                    placeholder="Indique su mensaje o comentario" required></textarea>
+                                <div *ngIf="message.invalid && contactForm.submitted" class="invalid-feedback">
+                                    <div *ngIf="message.errors?.['required']">Campo es requerido
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <div id="html_element"></div>
+                            </div>
+
+                            <div class="col-md-12 form-action">
+                                <button type="submit" class="btn btn-primary btn-rounded" [disabled]="submiting">
+                                    {{submiting ? "Enviando..." : "Enviar mensaje"}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 js-match-height" style="visibility: hidden;">
+                <aside class="aside__left contact__aside">
+                    <div class="contact__aside--content">
+                        <div class="contact__aside--widget">
+                            <h5 class="contact__aside--widget-title"><i class="fa fa-home"></i> Office address</h5>
+                            <p>{{data?.OfficeAddress}}</p>
+                        </div>
+                        <div class="contact__aside--widget">
+                            <h5 class="contact__aside--widget-title"><i class="fa fa-phone"></i> Phone number</h5>
+                            <p>{{data?.PhoneNumber}}</p>
+                        </div>
+                        <div class="contact__aside--widget">
+                            <h5 class="contact__aside--widget-title"><i class="fa fa-envelope"></i> Email address</h5>
+                            <p>{{data?.DisplayEmailAddress}}</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->

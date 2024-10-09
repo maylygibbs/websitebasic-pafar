@@ -1,0 +1,54 @@
+<!-- Start Breadcrumb -->
+<app-breadcrumb>
+    <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Blog</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Blog left sidebar</li>
+</app-breadcrumb>
+<!-- End Breadcrumb -->
+
+<!-- Start Section -->
+<section class="section pt-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 order-lg-4">
+                <!-- Start blog listing -->
+                <blog-post-list
+                    *ngFor="let item of blogService.blogs | paginate: { id: 'blog', itemsPerPage: mainService.blogItemPerPage, currentPage: blogService.page, totalItems: blogService.total }"
+                    [categories]="item.attributes.blog_categories.data"
+                    [title]="item.attributes.Title"
+                    [coverImage]="baseUrl + item.attributes.Image?.data.attributes.formats.medium.url"
+                    [avatar]="baseUrl + item.attributes.createdBy?.avatar"
+                    [user]="item.attributes.createdBy.firstname + ' ' + item.attributes.createdBy.lastname"
+                    [date]="item.attributes.DisplayDate"
+                    [sortDescription]="item.attributes.SortDescription"
+                    [tags]="item.attributes.tags.data"
+                    [path]="blogService.path"
+                    [pageLink]="'/blog/' + item.attributes.Slug + '_' + item.attributes.uuid"
+                ></blog-post-list>
+                <!-- End blog listing -->
+
+                <!-- Start Pagination -->
+                <pagination-controls 
+                    id="blog" 
+                    previousLabel="Previous"
+                    nextLabel="Next"
+                    (pageChange)="blogService.pageChange($event)">
+                </pagination-controls>
+                <!-- Start Pagination -->
+            </div>
+            <div class="col-lg-4">
+                <aside class="aside__left">
+                    <blog-sidebar></blog-sidebar>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<call-to-action
+    text="Need help's... Feel fee to contact us"
+    link="contact"
+></call-to-action>
+<!-- End Section -->

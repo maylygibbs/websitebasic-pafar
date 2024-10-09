@@ -1,0 +1,41 @@
+<!-- Start Breadcrumb -->
+<app-breadcrumb>
+    <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Page</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Career</li>
+</app-breadcrumb>
+<!-- End Breadcrumb -->
+
+ <!-- Start Section -->
+ <section class="section pt-40">
+    <div class="container">
+        <!-- Start career -->
+        <div *ngFor="let item of listData" class="career__wrapper">
+            <div class="row">
+                <div class="col-lg-7">
+                    <img [src]="baseUrl + item.attributes?.Image?.data.attributes.url" class="img-fluid" alt="" />
+                </div>
+                <div class="col-lg-5">
+                    <div class="career__content">
+                        <h3>{{item.attributes.Title}}</h3>
+                        <p>{{item.attributes.Description}}</p>
+                        <label class="career__label">Requirement :</label>
+                        <ul class="career__list">
+                            <li *ngFor="let list of item.attributes.Items">{{list.CareerItem}}</li>
+                        </ul>
+                        <a [href]="item.attributes.Link" class="btn btn-primary btn-rounded btn-stroke">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End career -->
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<call-to-action
+    text="Need help's... Feel fee to contact us"
+    link="contact"
+></call-to-action>
+<!-- End Section -->

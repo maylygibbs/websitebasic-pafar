@@ -1,0 +1,57 @@
+<!-- Start Subscript Section -->
+<section class="section p0">
+    <div class="container">
+        <div class="section__cta section__cta-column section__cta-offset">
+            <div calss="row">
+                <div class="col-md-12">
+                    <h2>{{title}}</h2>
+                </div>
+            </div>
+            <div calss="row">
+                <div class="col-md-8 offset-lg-2">
+                    <fieldset class="section__cta-subscribe">
+                        <form name="ctaSubscribe" action="">
+                            <input 
+                                type="text" 
+                                [(ngModel)]="email"
+                                name="email"
+                                class="section__cta-subscribe-input" 
+                                placeholder="Enter your email address" />
+                            <button 
+                                type="button" 
+                                (click)="subscribeService.postSubscribeNews(email)"
+                                [disabled]="subscribeService.isSubmit"
+                                class="btn btn-rounded btn-white section__cta-subscribe-button btn-icon-right">
+                                {{subscribeService.isSubmit ? "Submiting..." : "Subscribe"}} <i class="fa fa-long-arrow-right"></i>
+                            </button>
+                        </form>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Subscript Section -->
+
+<!-- Start Toast Success Subscribe -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div 
+        id="subscribeToast" 
+        class="toast align-items-center text-white border-0" 
+        [class.bg-success]="subscribeService.isSuccess"
+        [class.bg-danger]="subscribeService.isFailed"
+        role="alert" 
+        aria-live="assertive" 
+        aria-atomic="true">
+        <div class="d-flex">
+            <div *ngIf="subscribeService.isSuccess" class="toast-body">
+                <strong>Thank you</strong> for subscribe our newsletter
+            </div>
+            <div *ngIf="subscribeService.isFailed" class="toast-body">
+                <strong>Sorry</strong> your request is failed
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+<!-- End Toast Success Subscribe -->

@@ -1,0 +1,238 @@
+<!-- Start Masthead -->
+<section class="masthead js-masthead-height pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="masthead__content text-center">
+                    <h1 class="masthead__content-title">{{data?.HeroSection.Title}}</h1>
+                    <p class="masthead__content-subtitle">{{data?.HeroSection.Description}}</p>
+                </div>
+                <div class="masthead__content text-center">
+                    <a [href]="data?.HeroSection.Link" class="btn btn-primary btn-rounded btn-icon-left btn-lg mb-2"><i class="fa fa-download"></i> Download</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="masthead__video">
+                    <div id="player" [attr.poster]="baseUrl + data?.HeroSection.Image1.data.attributes.url" data-plyr-provider="youtube" [attr.data-plyr-embed-id]="data?.HeroSection.Embed"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Masthead -->
+
+<!-- Start Section -->
+<section class="section pb-0 mt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="owl-active-nav">
+                    <div class="owl-carousel js-owl-clients">
+                        <!-- Start client -->
+                        <div *ngFor="let item of homeService.brands" class="item">
+                            <a [href]="item.attributes.Link" class="client">
+                                <img [src]="baseUrl + item.attributes?.HoverImage?.data.attributes.url" class="client_logo-hover" [attr.alt]="item.attributes.Name" />
+                                <img [src]="baseUrl +  item.attributes?.Image?.data.attributes.url" class="client_logo" [attr.alt]="item.attributes.Name" />
+                            </a>
+                        </div>
+                        <!-- End client -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.Section1.Title}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center mb-40">
+                <p>{{data?.Section1.Description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let item of data?.Section1List" class="col-lg-4">
+                <section-column-item
+                    iconImage="icon-{{item.Image}}"
+                    [title]="item.Title"
+                    type="text-center"
+                    [description]="item.Description"
+                ></section-column-item>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__gray pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 align-self-center mb-40 sm-text-center">
+                <h2>{{data?.Section2.Title}}</h2>
+                <p>{{data?.Section2.Description}}</p>
+                <a [href]="data?.Section2.Link" class="btn btn-primary btn-stroke btn-rounded">Learn more </a>
+            </div>
+            <div class="col-lg-8">
+                <img [src]="baseUrl + data?.Section2.Image1.data.attributes.url" class="img-fluid offset-bottom-80" alt="Using Software" />
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section mt-90 pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.FeatureTitle}}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="features__wrapper">
+        <div class="owl-active-nav">
+            <div class="owl-carousel js-owl-features">
+                <!-- Start client -->
+                <div *ngFor="let item of data?.Features" class="item">
+                    <feature-item
+                        iconImage="icon-{{item.Image}}"
+                        [title]="item.Title"
+                        [description]="item.Description"
+                        [link]="item.Link"
+                    ></feature-item>
+                </div>
+                <!-- End client -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.PriceSection.Title}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center mb-40">
+                <p>{{data?.PriceSection.Description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="pricing">
+                    <!-- Start pricing -->
+                    <pricing-column
+                        [color]="priceListDataFirst?.PriceColor"
+                        [title]="priceListDataFirst?.PriceName"
+                        [fontAwesomIcon]="priceListDataFirst?.FontAwesomeIconName"
+                        [price]="priceListDataFirst?.Price"
+                        className="pp-first"
+                        [priceList]="priceListDataFirst?.PriceList"
+                        [currency]="priceListDataFirst?.Currency"
+                    ></pricing-column>
+                    <ng-container *ngFor="let item of priceListDataCenter;">
+                        <pricing-column
+                            [color]="item.PriceColor"
+                            [title]="item.PriceName"
+                            [fontAwesomIcon]="item.FontAwesomeIconName"
+                            [price]="item.Price"
+                            className="pricing__popular"
+                            [priceList]="item.PriceList"
+                            [currency]="item.Currency"
+                        ></pricing-column>
+                    </ng-container>
+                    <pricing-column
+                        [color]="priceListDataLast?.PriceColor"
+                        [title]="priceListDataLast?.PriceName"
+                        [fontAwesomIcon]="priceListDataLast?.FontAwesomeIconName"
+                        [price]="priceListDataLast?.Price"
+                        className="pp-last"
+                        [priceList]="priceListDataLast?.PriceList"
+                        [currency]="priceListDataLast?.Currency"
+                    ></pricing-column>
+                    <!-- End pricing -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.BlogsTitle}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="owl-carousel js-owl-article">
+                    <!-- Start Blog -->
+                    <div *ngFor="let item of homeService.popularPost" class="item">
+                        <blog-post-grid
+                            [categories]="item.attributes.blog_categories.data"
+                            [title]="item.attributes.Title"
+                            [avatar]="baseUrl + item.attributes.createdBy?.avatar"
+                            [user]="item.attributes.createdBy.firstname + ' ' + item.attributes.createdBy.lastname"
+                            [date]="item.attributes.DisplayDate"
+                            [coverImage]="baseUrl + item.attributes.Image?.data.attributes.formats.medium.url + '?resize=640x250'"
+                            [pageLink]="'/blog/' + item.attributes.Slug + '_' + item.attributes.uuid"
+                        ></blog-post-grid>
+                    </div>
+                    <!-- End Blog -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<subscribe-section title="Let's try it's free trail for 30 days"></subscribe-section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__gray-watter--bottom">
+    <div class="container">
+        <div class="row mt-100">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.TestimonialsTitle}}</h2>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <div class="owl-carousel js-owl-testimoni">
+                    <!-- Start testimoni -->
+                    <div *ngFor="let item of homeService.testimonials" class="item">
+                        <div class="testimoni">
+                            <blockquote><p>{{item.attributes.Quote}}</p></blockquote>
+                            <p class="testimoni__author"><a href="#">{{item.attributes.Name}}</a></p>
+                            <a href="#" class="testimoni__avatar">
+                            <img [src]="baseUrl +  item.attributes?.Avatar?.data.attributes.url" class="testimoni__avatar-image" [alt]="item.attributes.Name" /></a>
+                        </div>
+                    </div>
+                    <!-- End testimoni -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ <!-- End Section -->

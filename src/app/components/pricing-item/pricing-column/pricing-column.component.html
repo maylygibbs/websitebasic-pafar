@@ -1,0 +1,56 @@
+<!-- Start Pricing -->
+<div class="pricing__column pricing__{{color}} {{className}}">
+    <div class="pricing__heading">
+        <i class="{{fontAwesomIcon}} pricing__icon"></i>
+        <h3 class="text-normal">{{title}}</h3>
+    </div>
+    <div class="pricing__content">
+        <p>
+            From
+            <span class="pricing__content-price">
+                <em class="pricing__content-currency">{{currency}}</em>
+                {{price}}
+            </span>
+            <small class="pricing__content-muted">/mo</small>
+        </p>
+        <a href="#" class="pricing__content-package" data-bs-toggle="modal" [attr.data-bs-target]="'#' + id">What’s included ?</a>
+    </div>
+    <div class="pricing__action">
+        <button type="button" class="btn btn-{{color}} btn-stroke btn-rounded pricing__button">Choose Plan</button>
+    </div>
+</div>
+<!-- End Pricing -->
+
+<!-- Start Modal Pricing Package -->
+<div class="modal fade" [id]="id" tabindex="-1" role="dialog"aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="package">
+                    <div class="package__heading package__heading-{{color}}">
+                        <i class="fa fa-paper-plane"></i>
+                    </div>
+                    <h3 class="package__title">{{title}}</h3>
+                    <div class="package__content">
+                        <ul>
+                            <li *ngFor="let item of priceList" 
+                                [class.included]="item.Status" 
+                                [class.unincluded]="!item.Status"
+                            >
+                                <i class="fa" 
+                                    [class.fa-check]="item.Status" 
+                                    [class.fa-times]="!item.Status"></i> 
+                                    {{item.ItemName}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="package__action">
+                        <button type="button" class="btn btn-{{color}} btn-stroke btn-rounded">Choose Plan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal Pricing Package -->

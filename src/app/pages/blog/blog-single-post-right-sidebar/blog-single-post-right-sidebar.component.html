@@ -1,0 +1,115 @@
+<!-- Start Breadcrumb -->
+<app-breadcrumb>
+    <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Blog</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Blog right sidebar</li>
+</app-breadcrumb>
+<!-- End Breadcrumb -->
+
+<!-- Start Section -->
+<section class="section pt-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <ng-container *ngIf="blogService.dataSingleBlog == null">
+                    <ngx-skeleton-loader count="1" appearance="line" [theme]="{height: '300px'}"></ngx-skeleton-loader>
+                    <ngx-skeleton-loader count="1" appearance="line" [theme]="{height: '30px'}"></ngx-skeleton-loader>
+                    <ngx-skeleton-loader count="5" appearance="line" [theme]="{height: '14px'}"></ngx-skeleton-loader>
+                </ng-container>
+
+                <!-- Start blog -->
+                <div class="blog__listing blog__single-post" *ngIf="blogService.dataSingleBlog != null">
+                    <div class="blog__listing-thumbnail">
+                        <a href="#">
+                            <img [src]="baseUrl + blogService.dataSingleBlog?.Image.data.attributes.url" class="img-fluid" alt="" />
+                        </a>
+                    </div>
+                    <h3 class="blog__listing-title"><a href="#">{{blogService.dataSingleBlog?.Title}}</a></h3>
+                    <ul class="blog__listing-meta">
+                        <li>
+                            <label><i class="fa fa-user"></i> Author : </label>
+                            <a href="#">{{blogService.dataSingleBlog?.createdBy.firstname}} {{blogService.dataSingleBlog?.createdBy.lastname}}</a>
+                        </li>
+                        <li>
+                            <label><i class="fa fa-calendar"></i> Publish : </label>
+                            <a href="#">{{blogService.dataSingleBlog?.DisplayDate}}</a>
+                        </li>
+                        <li>
+                            <label><i class="fa fa-comments"></i> Comments : </label>
+                            <a href="{{blogService.path}}/{{blogService.dataSingleBlog?.Slug}}_{{blogService.dataSingleBlog?.uuid}}#disqus_thread">
+                                {{blogService.dataSingleBlog?.commentCounter}}
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="blog__listing-content">
+                        <div class="blog__listing-content--text js-blog-article" [innerHTML]="blogService.dataSingleBlog?.Body | sanitizeHtml"></div>
+                        
+                        <ul class="blog__listing-content--tags">
+                            <li *ngFor="let item of blogService.dataSingleBlog?.tags.data">
+                                <a 
+                                    routerLink="/blog" 
+                                    [queryParams]="{tag: item.attributes.Slug}">
+                                    {{item.attributes.Label}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End blog -->
+
+                <!-- Start blog author -->
+                <div class="blog__author" *ngIf="blogService.dataSingleBlog != null">
+                    <div class="blog__author--avatar">
+                        <img [src]="baseUrl + blogService.dataSingleBlog?.createdBy.avatar" class="img-fluid" alt="" />
+                    </div>
+                    <div class="blog__author--content">
+                        <h4 class="blog__author--content-title"><a href="#">{{blogService.dataSingleBlog?.createdBy.firstname}} {{blogService.dataSingleBlog?.createdBy.lastname}}</a></h4>
+                        <p>{{blogService.dataSingleBlog?.createdBy.about}}</p>
+                    </div>
+                    <div class="blog__author--network">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <!-- End blog author -->
+
+                <!-- Start related read -->
+                <div class="blog__related-read" *ngIf="blogService.dataSingleBlog != null">
+                    <h3>Related read</h3>
+                    <div class="row">
+                        <!-- Start blog grid listing -->
+                        <div *ngFor="let item of blogService.relatedPost" class="col-lg-6">
+                            <blog-post-grid
+                                [title]="item.attributes.Title"
+                                [avatar]="baseUrl + item.attributes.createdBy?.avatar"
+                                [user]="item.attributes.createdBy.firstname + ' ' + item.attributes.createdBy.lastname"
+                                [date]="item.attributes.DisplayDate"
+                                [coverImage]="baseUrl + item.attributes.Image?.data.attributes.formats.medium.url + '?resize=640x250'"
+                                [pageLink]="'/blog/' + item.attributes.Slug + '_' + item.attributes.uuid"
+                            ></blog-post-grid>
+                        </div>
+                        <!-- End blog grid listing -->
+                    </div>
+                </div>
+                <!-- End related read  -->
+
+                <div id="disqus_thread"></div>
+            </div>
+            <div class="col-lg-4">
+                <aside class="aside__right">
+                    <blog-sidebar></blog-sidebar>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<call-to-action
+    text="Need help's... Feel fee to contact us"
+    link="contact"
+></call-to-action>
+<!-- End Section -->

@@ -1,0 +1,50 @@
+<!-- Start Breadcrumb -->
+<app-breadcrumb>
+    <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Page</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Testimoni</li>
+</app-breadcrumb>
+<!-- End Breadcrumb -->
+
+<!-- Start Section -->
+<section class="section pt-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">Clients testimoni</h2>
+            </div>
+        </div>
+        <div class="row">
+
+            <div *ngFor="let item of data | paginate: { id: 'gallery', itemsPerPage: itemsPerPage, currentPage: page, totalItems: total }" class="col-lg-4">
+                <div class="testimoni__card js-match-height">
+                    <blockquote><p>{{item.attributes.Quote}}</p></blockquote>
+                    <div class="testimoni__card--author">
+                        <div class="testimoni__card--author-avatar">
+                            <img [src]="baseUrl +  item.attributes?.Avatar?.data.attributes.url" alt="" />
+                        </div>
+                        <h4 class="testimoni__card--author-name">{{item.attributes.Name}}</h4>
+                        <a [href]="item.attributes.CompanyLink" class="testimoni__card--author-company">{{item.attributes.CompanyName}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <pagination-controls 
+                id="gallery" 
+                previousLabel="Previous"
+                nextLabel="Next"
+                (pageChange)="pageChange($event)">
+            </pagination-controls>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<call-to-action
+    text="Need help's... Feel fee to contact us"
+    link="contact"
+></call-to-action>
+<!-- End Section -->

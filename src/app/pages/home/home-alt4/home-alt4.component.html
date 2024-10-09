@@ -1,0 +1,262 @@
+<!-- Start Masthead -->
+<section class="masthead js-masthead-height pb-0">
+    <div class="container masthead__browser">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="masthead__content text-center">
+                    <h1 class="masthead__content-title">{{data?.HeroSection.Title}}</h1>
+                    <p class="masthead__content-subtitle">{{data?.HeroSection.Description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-lg-center mb-60">
+            <div class="col-lg-5">
+                <subscribe-single></subscribe-single>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="masthead__browser-wrapper">
+                    <div class="owl-active-nav">
+                        <div class="owl-carousel js-owl-screenshot">
+                            <!-- Start screenhot -->
+                             <div *ngFor="let item of data?.ProductScreenshot.data" class="item">
+                                <img [src]="baseURL + item.attributes.url" class="img-fluid" alt="App dashboard" />
+                            </div>
+                            <!-- End screenhot -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Masthead -->
+
+<!-- Start Section -->
+<section class="section pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.Section1.Title}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <p>{{data?.Section1.Description}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let item of data?.Feature" class="col-lg-4">
+                <section-column-item
+                    iconImage="icon-{{item.Image}}"
+                    [title]="item.Title"
+                    type="section__column-left"
+                    [description]="item.Description"
+                ></section-column-item>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__gray">
+    <div class="container">
+        <div class="row mt-40">
+            <div class="col-lg-7 order-lg-4 offset-lg-1 mb-40">
+                <div id="player" [attr.poster]="baseURL + data?.Section2.Image1.data.attributes.url" data-plyr-provider="youtube" [attr.data-plyr-embed-id]="data?.Section2.Embed"></div>
+            </div>
+            <div class="col-lg-4 align-self-center mb-40">
+                <h2>{{data?.Section2.Title}}</h2>
+                <p>{{data?.Section2.Description}}</p>
+                <a [href]="data?.Section2.Link" class="btn btn-primary btn-stroke btn-rounded">Learn more </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section">
+    <div class="container">
+        <div class="row mt-40">
+            <div class="col-lg-7 mb-40">
+                <img [src]="baseURL + data?.Section3.Image1.data.attributes.url" class="img-fluid" [alt]="data?.Section3.Title" />
+            </div>
+            <div class="col-lg-4 align-self-center offset-lg-1 mb-40">
+                <h2>{{data?.Section3.Title}}</h2>
+                <p>{{data?.Section3.Description}}</p>
+                <a [href]="data?.Section3.Link" class="btn btn-primary btn-stroke btn-rounded">Learn more </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 order-lg-4 offset-lg-1 mb-40">
+                <img [src]="baseURL + data?.Section4.Image1.data.attributes.url" class="img-fluid" [alt]="data?.Section4.Title" />
+            </div>
+            <div class="col-lg-4 align-self-center mb-40">
+                <h2>{{data?.Section4.Title}}</h2>
+                <p>{{data?.Section4.Description}}</p>
+                <a [href]="data?.Section4.Link" class="btn btn-primary btn-stroke btn-rounded">Learn more </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center mb-20">
+                <div class="owl-carousel js-owl-testimoni">
+                    <!-- Start testimoni -->
+                    <div *ngFor="let item of homeService.testimonials" class="item">
+                        <div class="testimoni">
+                            <blockquote><p>{{item.attributes.Quote}}</p></blockquote>
+                            <p class="testimoni__author"><a href="#">{{item.attributes.Name}}</a></p>
+                            <a href="#" class="testimoni__avatar">
+                            <img [src]="baseURL +  item.attributes?.Avatar?.data.attributes.url" class="testimoni__avatar-image" [alt]="item.attributes.Name" /></a>
+                        </div>
+                    </div>
+                    <!-- End testimoni -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.SectionPrice.Title}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center mb-40">
+                <p>{{data?.SectionPrice.Description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="pricing">
+                    <!-- Start pricing -->
+                    <pricing-column
+                        [color]="priceListDataFirst?.PriceColor"
+                        [title]="priceListDataFirst?.PriceName"
+                        [fontAwesomIcon]="priceListDataFirst?.FontAwesomeIconName"
+                        [price]="priceListDataFirst?.Price"
+                        className="pp-first"
+                        [priceList]="priceListDataFirst?.PriceList"
+                        [currency]="priceListDataFirst?.Currency"
+                    ></pricing-column>
+                    <ng-container *ngFor="let item of priceListDataCenter;">
+                        <pricing-column
+                            [color]="item.PriceColor"
+                            [title]="item.PriceName"
+                            [fontAwesomIcon]="item.FontAwesomeIconName"
+                            [price]="item.Price"
+                            className="pricing__popular"
+                            [priceList]="item.PriceList"
+                            [currency]="item.Currency"
+                        ></pricing-column>
+                    </ng-container>
+                    <pricing-column
+                        [color]="priceListDataLast?.PriceColor"
+                        [title]="priceListDataLast?.PriceName"
+                        [fontAwesomIcon]="priceListDataLast?.FontAwesomeIconName"
+                        [price]="priceListDataLast?.Price"
+                        className="pp-last"
+                        [priceList]="priceListDataLast?.PriceList"
+                        [currency]="priceListDataLast?.Currency"
+                    ></pricing-column>
+                    <!-- End pricing -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section pt-0 pb-0">
+    <div class="container__fullwidth">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="section__heading section__heading-left">{{data?.NewsArticleTitle}}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="owl-active-nav--left">
+        <div class="owl-carousel js-owl-fullwidth">
+            <!-- Start item -->
+            <div *ngFor="let item of homeService.popularPost" class="item">
+                <blog-post-full
+                    [categories]="item.attributes.blog_categories.data"
+                    [title]="item.attributes.Title"
+                    [avatar]="baseURL + item.attributes.createdBy?.avatar"
+                    [user]="item.attributes.createdBy.firstname + ' ' + item.attributes.createdBy.lastname"
+                    [date]="item.attributes.DisplayDate"
+                    [coverImage]="baseURL + item.attributes.Image?.data.attributes.formats.medium.url + '?resize=560x640'"
+                    [pageLink]="'/blog/' + item.attributes.Slug + '_' + item.attributes.uuid"
+                ></blog-post-full>
+            </div>
+            <!-- End item -->
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__gray">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="owl-active-nav">
+                    <div class="owl-carousel js-owl-clients">
+                        <!-- Start client -->
+                        <div *ngFor="let item of homeService.brands" class="item">
+                            <a [href]="item.attributes.Link" class="client">
+                                <img [src]="baseURL+  item.attributes?.HoverImage?.data.attributes.url" class="client_logo-hover" [attr.alt]="item.attributes.Name" />
+                                <img [src]="baseURL +  item.attributes?.Image?.data.attributes.url" class="client_logo" [attr.alt]="item.attributes.Name" />
+                            </a>
+                        </div>
+                        <!-- End client -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h2>Let's try it's free trail for 30 days</h2>
+                <a href="#" class="btn btn-white btn-rounded btn-lg btn-icon-right">Get started <i class="fa fa-long-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->

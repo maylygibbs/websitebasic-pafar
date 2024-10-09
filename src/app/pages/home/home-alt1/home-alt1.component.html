@@ -1,0 +1,238 @@
+<!-- Start Masthead -->
+<section class="masthead js-masthead-height text-center pb-0">
+    <div class="container custom d-flex flex-column">
+        <div class="masthead__offset-bottom">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="masthead__content">
+                        <p class="masthead__content-subtitle"><b>Trabajamos</b></p>
+                        <h1 class="masthead__content-title">Creando Soluciones</h1>
+                        <p class="masthead__content-subtitle">Innovamos ideas para un mundo mejor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-lg-center">
+                <div class="col-lg-5">
+                    <subscribe-single></subscribe-single>
+                </div>
+            </div>
+        </div>
+        <img src="/assets/images/imagen-3-web-pafar.png" class="masthead__content-image" alt="Masthead Image" style="visibility: hidden;"/>
+    </div>
+</section>
+<!-- End Masthead -->
+
+<!-- Start Section -->
+<section class="section pb-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading_custom section__heading-center">Pafar</h2>
+                <h4 class="section__heading section__heading-center subt">Ingenieria y Construcción</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center mb-40">
+                <p>Brindamos innovación y excelencia.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let item of data?.Features" class="col-lg-4">
+                <section-column-item
+                    [iconImage]="'icon-' + item.Image"
+                    [title]="item.Title"
+                    type="text-center"
+                    [description]="item.Description"
+                ></section-column-item>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__gray pb-0" hidden>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-40">
+                <img [src]="baseUrl + data?.Section2.Image1?.data?.attributes.url" class="img-fluid" [alt]="data?.Section2.Title" />
+            </div>
+            <div class="col-lg-6 mb-40">
+                <h3>{{data?.Section2.Title}}</h3>
+                <p>{{data?.Section2.Description}}</p>
+                <div class="row">
+                    <div *ngFor="let item of data?.Section2.ListItem" class="col-lg-6 col-md-6">
+                        <div class="column__icon column__icon-left">
+                            <i class="{{item.FontAwesomeIcon}}"></i>
+                            <h5 class="text-normal">{{item.Text}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <a [href]="data?.Section2.Link" class="btn btn-primary btn-rounded">Learn more </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__gray pt-30 pb-0" hidden>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">Product screenshot</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="owl-active-nav">
+                    <div class="owl-carousel js-owl-screenshot">
+                        <!-- Start screenhot -->
+                        <div *ngFor="let item of data?.ProductScreenshot.data" class="item">
+                            <img [src]="baseUrl + item?.attributes.url" class="img-fluid" alt="" />
+                        </div>
+                        <!-- End screenhot -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Price Section -->
+<section class="section pb-0" hidden>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.SectionPrice.Title}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center mb-40">
+                <p>{{data?.SectionPrice.Description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="pricing">
+                    <!-- Start pricing -->
+                    <pricing-column
+                        [color]="priceListDataFirst?.PriceColor"
+                        [title]="priceListDataFirst?.PriceName"
+                        [fontAwesomIcon]="priceListDataFirst?.FontAwesomeIconName"
+                        [price]="priceListDataFirst?.Price"
+                        className="pp-first"
+                        [priceList]="priceListDataFirst?.PriceList"
+                        [currency]="priceListDataFirst?.Currency"
+                    ></pricing-column>
+                    <ng-container *ngFor="let item of priceListDataCenter;">
+                        <pricing-column
+                            [color]="item.PriceColor"
+                            [title]="item.PriceName"
+                            [fontAwesomIcon]="item.FontAwesomeIconName"
+                            [price]="item.Price"
+                            className="pricing__popular"
+                            [priceList]="item.PriceList"
+                            [currency]="item.Currency"
+                        ></pricing-column>
+                    </ng-container>
+                    <pricing-column
+                        [color]="priceListDataLast?.PriceColor"
+                        [title]="priceListDataLast?.PriceName"
+                        [fontAwesomIcon]="priceListDataLast?.FontAwesomeIconName"
+                        [price]="priceListDataLast?.Price"
+                        className="pp-last"
+                        [priceList]="priceListDataLast?.PriceList"
+                        [currency]="priceListDataLast?.Currency"
+                    ></pricing-column>
+                    <!-- End pricing -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Price Section -->
+
+<!-- Start Section -->
+<section class="section pt-40" hidden>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.SectionTestimonialTitle}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center mb-20">
+                <div class="owl-carousel js-owl-testimoni">
+                    <!-- Start testimoni -->
+                    <div *ngFor="let item of homeService.testimonials" class="item">
+                        <div class="testimoni">
+                            <blockquote><p>{{item.attributes.Quote}}</p></blockquote>
+                            <p class="testimoni__author"><a href="#">{{item.attributes.Name}}</a></p>
+                            <a href="#" class="testimoni__avatar">
+                            <img [src]="baseUrl +  item.attributes?.Avatar?.data.attributes.url" class="testimoni__avatar-image" [alt]="item.attributes.Name" /></a>
+                        </div>
+                    </div>
+                    <!-- End testimoni -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="divider"></div>
+                <div class="owl-active-nav">
+                    <div class="owl-carousel js-owl-clients">
+                        <!-- Start client -->
+                        <div *ngFor="let item of homeService.brands" class="item">
+                            <a [href]="item.attributes.Link" class="client">
+                                <img [src]="baseUrl +  item.attributes?.HoverImage?.data.attributes.url" class="client_logo-hover" [attr.alt]="item.attributes.Name" />
+                                <img [src]="baseUrl +  item.attributes?.Image?.data.attributes.url" class="client_logo" [attr.alt]="item.attributes.Name" />
+                            </a>
+                        </div>
+                        <!-- End client -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__gray" hidden>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.SectionBlogTitle}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="owl-carousel js-owl-article">
+                    <!-- Start Blog -->
+                    <div *ngFor="let item of homeService.popularPost" class="item">
+                        <blog-post-grid
+                            [categories]="item.attributes.blog_categories.data"
+                            [title]="item.attributes.Title"
+                            [avatar]="baseUrl + item.attributes.createdBy?.avatar"
+                            [user]="item.attributes.createdBy.firstname + ' ' + item.attributes.createdBy.lastname"
+                            [date]="item.attributes.DisplayDate"
+                            [coverImage]="baseUrl + item.attributes.Image?.data.attributes.formats.medium.url + '?resize=640x250'"
+                            [pageLink]="'/blog/' + item.attributes.Slug + '_' + item.attributes.uuid"
+                        ></blog-post-grid>
+                    </div>
+                    <!-- End Blog -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<call-to-action hidden
+    text="Need help's... Feel fee to contact us"
+    link="contact"
+></call-to-action>
+<!-- End Section -->

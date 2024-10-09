@@ -1,0 +1,78 @@
+<!-- Start Footer -->
+<footer *ngIf="!mainService.isDemoPage" class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="footer__widget" hidden>
+                    <p>{{mainService.siteFooterContent}}</p>
+                    <div *ngFor="let item of mainService?.siteFooterList" class="footer__widget-contact">
+                        <i class="{{item.FontAwesomeIcon}} icon"></i>
+                        <p>{{item.Text}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2 col-sm-3">
+                <div class="footer__widget">
+                    <h4 class="footer__widget-title">Productos y Servicio: Areas</h4>
+                    <ul class="footer__widget-linklist">
+                        <li><a href="javascript:;">Ingeniería Aplicada Y Construcción</a></li>
+                        <li><a href="javascript:;">Ingeniería De Software</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2 col-sm-3">
+                <div class="footer__widget">
+                    <h4 class="footer__widget-title">Sedes</h4>
+                    <ul class="footer__widget-linklist">
+                        <li><a href="javascript:;" routerLink="/about">Pafar Venezuela</a></li>
+                        <li><a href="javascript:;" routerLink="/services">Pafar Panamá</a></li>
+                        <li><a href="javascript:;" routerLink="/services">Pafar Rep. Dominicana</a></li>
+                        <li><a href="javascript:;" routerLink="/career">Solinte Nicaragua</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2 col-sm-3">
+                <div class="footer__widget">
+                    <h4 class="footer__widget-title">Alianzas</h4>
+                    <ul class="footer__widget-linklist">
+                        <li><a href="www.untel.com.tr" >Untel</a></li>
+                        <li><a href="www.aluder.com" >Aluder</a></li>
+                        <li><a href="www.aquantiqlex.com">Aquantiqlex</a></li>
+                        <li><a href="www.adequa-tuberias.com">Adecua</a></li>
+                        <li><a href="www.t4rl.com">T4RL</a></li>
+                        <li><a href="www.t-dx.com">Taurus</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3 col-sm-3">
+                <div class="footer__widget">
+                    <h4 class="footer__widget-title">Siguenos</h4>
+                    <ul class="footer__widget-network">
+                        <li><a href="javascript:;" class="footer__widget-network-link"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="javascript:;" class="footer__widget-network-link"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="javascript:;" class="footer__widget-network-link"><i class="fa-brands fa-linkedin"></i></a></li>
+                        <li><a href="javascript:;" class="footer__widget-network-link"><i class="fa-brands fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="footer__subfooter">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <p>© <a routerLink="/">Pafar</a> | Copyright @2022 All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer -->
+
+<!-- Start Demo Footer -->
+<footer *ngIf="mainService.isDemoPage"  class="demo__footer">
+    <p>© <a href="#">99webpage</a> | Web Design Indonesia 2020. All Rights Reserved.</p>
+</footer>
+<!-- Start Demo Footer -->

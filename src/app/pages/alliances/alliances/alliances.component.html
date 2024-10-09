@@ -1,0 +1,69 @@
+<!-- Start Breadcrumb -->
+<app-breadcrumb>
+    <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i>Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Alianzas</li>
+</app-breadcrumb>
+<!-- End Breadcrumb -->
+
+<!-- Start Section -->
+<section class="section pt-40">
+    <div class="container">
+        <div class="notices__heading">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h2 class="section__heading">Alianzas</h2>
+                </div>
+                <div class="col-lg-8">
+                    <div class="notices__content" [innerHTML]="'Las alianzas pasaron a ser una práctica que tomó mucho auge a partir del arribo de tecnologias vanguardistas. La necesidad de llegar a todos los mercados, de ofrecer servicios complementarios y soluciones a la medida, impulsó a Pafar a tejer acuerdos con empresas importantes.' | sanitizeHtml"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-4">
+                <section-column-item
+                    [title]="'Untel'"
+                    type="section__column-left"
+                    [description]="'Fabrica Turca de cable especializado con más de 70 años de experiencia, en tension media a baja y cable taylor made para los segtores: energia, industrial , marino, off shore, petroleo, mineria, transporte y construcción.'"
+                ></section-column-item>
+            </div>
+            <div class="col-lg-4">
+                <section-column-item
+                    [title]="'Aluder'"
+                    type="section__column-left"
+                    [description]="'Fabrica Española de carpinteria de Aluminio en soluciones de multiples acabados y norma climali (estandart europero para cerramientos termicos y acusticos), ventaneria, puertas, marcos de puertas y ventanas, mosquiteros invisibles, puertas de baño, cerramientos y fachadas de cristal.'"
+                ></section-column-item>
+            </div>
+            <div class="col-lg-4">
+                <section-column-item
+                    [title]="'Aquantiqlex'"
+                    type="section__column-left"
+                    [description]="'Empresa Panameña con participacion accionaria en plata de pintura, empresas de saneamientos de aguas residuales, energias alternatiivas y comercializacion y procura de equipamiento industrial.'"
+                ></section-column-item>
+            </div>
+
+            <div class="col-lg-4">
+                <section-column-item
+                    [title]="'Adecua'"
+                    type="section__column-left"
+                    [description]="'Fabrica Española de tuberias de aguas blancas, negras en PVC y aleaciones afines, valbuleria (en pvc), tramex (pvc y material reciclado) y regillas (pvc, galvaniozados y acero inoxidable) para pisos y piscinas, asi como sus accesorios.'"
+                ></section-column-item>
+            </div>
+            <div class="col-lg-4">
+                <section-column-item
+                    [title]="'T4RL'"
+                    type="section__column-left"
+                    [description]="'Soluciones financieras seguras y certificadas a medida para impulsar los avances tecnológicos alrededor de criptomonedas, blockchain, NFTs, tokenizacion y metaverso, creando valor duradero y fondos a marcas, empresas y particulares  tokenizando activos, previéndoles completa digitalización al arte, multimedia y películas.'"
+                ></section-column-item>
+            </div>
+            <div class="col-lg-4">
+                <section-column-item
+                    [title]="'Taurus'"
+                    type="section__column-left"
+                    [description]="'compañía suiza. Primer Market Place regulado del Mundo, para el intercambió de activos privados y Tokenizacion segura. '"
+                ></section-column-item>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+

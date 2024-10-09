@@ -1,0 +1,196 @@
+<!-- Start Masthead -->
+<section class="masthead js-masthead-height pb-0">
+    <div class="masthead__style-overlay"></div>
+    <div class="masthead__style-watter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="masthead__content masthead__content-mtop">
+                        <h1 class="masthead__content-title">{{data?.HeroSection.Title}}</h1>
+                        <p class="masthead__content-subtitle">{{data?.HeroSection.Description}}</p>
+                        
+                        <div class="masthead__content-action">
+                            <a href="javascript:void(0)" class="btn btn-orange btn-rounded btn-icon-left btn-lg js-video-button" [attr.data-video-id]="data?.HeroSection.Embed"><i class="fa fa-play"></i> Video Tour</a>
+                            <a [href]="data?.HeroSection.Link" class="btn btn-primary btn-rounded btn-icon-left btn-lg"><i class="fa fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-lg-6 text-center">
+                    <div class="masthead__style-watter--image">
+                        <div class="masthead__style-watter--icon flyIn">
+                            <img [src]="baseUrl + data?.HeroSection.Image1.data.attributes.url" class="img-fluid" alt="" />
+                        </div>
+                        <img [src]="baseUrl + data?.HeroSection.Image2.data.attributes.url" class="img-fluid" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Masthead -->
+
+<!-- Start Section -->
+<section class="section pb-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.Section1.Title}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center mb-40">
+                <p>{{data?.Section1.Description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let item of data?.Features" class="col-lg-4">
+                <section-column-item
+                    iconImage="icon-{{item.Image}}"
+                    [title]="item.Title"
+                    type="section__column-left"
+                    [description]="item.Description"
+                ></section-column-item>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<div class="section__divider section__divider-right d-none d-lg-block"></div>
+
+<!-- Start Section -->
+<section class="section pt-40 pb-0 sm-clear-pt">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-40">
+                <img [src]="baseUrl + data?.Section2.Image1.data.attributes.url" class="img-fluid" alt="Using Software" />
+            </div>
+            <div class="col-lg-4 align-self-center mb-40">
+                <h2>{{data?.Section2.Title}}</h2>
+                <p>{{data?.Section2.Description}}</p>
+                <a [href]="data?.Section2.Link" class="btn btn-primary btn-rounded">Learn more </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<div class="section__divider section__divider-left"></div>
+
+<!-- Start Section -->
+<section class="section pt-0 pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 order-lg-4 mb-40">
+                <img [src]="baseUrl + data?.Section3.Image1.data.attributes.url" class="img-fluid" alt="Business Man with Laptop" />
+            </div>
+            <div class="col-lg-4 align-self-center mb-40">
+                <h2>{{data?.Section3.Title}}</h2>
+                <p>{{data?.Section3.Description}}</p>
+                <a [href]="data?.Section3.Link" class="btn btn-primary btn-rounded">Learn more </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<div class="section__divider section__divider-right"></div>
+
+<!-- Start Section -->
+<section class="section pt-0 pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-40">
+                <img [src]="baseUrl + data?.Section4.Image1.data.attributes.url" class="img-fluid" alt="Lady with handphone" />
+            </div>
+            <div class="col-lg-4 align-self-center mb-40">
+                <h2>{{data?.Section4.Title}}</h2>
+                <p>{{data?.Section4.Description}}</p>
+                <a [href]="data?.Section4.Link" class="btn btn-primary btn-rounded">Learn more </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<subscribe-section title="Let's try it's free trail for 30 days"></subscribe-section>
+<!-- End Section -->
+
+<!-- Start Section -->
+<section class="section section__gray-watter--bottom">
+    <div class="container">
+        <div class="row mt-100">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.TestimonialsTitle}}</h2>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center mb-20">
+                <div class="owl-carousel js-owl-testimoni">
+                    <!-- Start testimoni -->
+                    <div *ngFor="let item of homeService.testimonials" class="item">
+                        <div class="testimoni">
+                            <blockquote><p>{{item.attributes.Quote}}</p></blockquote>
+                            <p class="testimoni__author"><a href="#">{{item.attributes.Name}}</a></p>
+                            <a href="#" class="testimoni__avatar">
+                            <img [src]="baseUrl +  item.attributes?.Avatar?.data.attributes.url" class="testimoni__avatar-image" [alt]="item.attributes.Name" /></a>
+                        </div>
+                    </div>
+                    <!-- End testimoni -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="divider"></div>
+                <div class="owl-active-nav">
+                    <div class="owl-carousel js-owl-clients">
+                        <!-- Start client -->
+                        <div *ngFor="let item of homeService.brands" class="item">
+                            <a [href]="item.attributes.Link" class="client">
+                                <img [src]="baseUrl +  item.attributes?.HoverImage?.data.attributes.url" class="client_logo-hover" [attr.alt]="item.attributes.Name" />
+                                <img [src]="baseUrl +  item.attributes?.Image?.data.attributes.url" class="client_logo" [attr.alt]="item.attributes.Name" />
+                            </a>
+                        </div>
+                        <!-- End client -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ <!-- End Section -->
+
+<!-- Start Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h2 class="section__heading section__heading-center">{{data?.BlogsTitle}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="owl-carousel js-owl-article">
+                    <!-- Start Blog -->
+                    <div *ngFor="let item of homeService.popularPost" class="item">
+                        <blog-post-grid
+                            [categories]="item.attributes.blog_categories.data"
+                            [title]="item.attributes.Title"
+                            [avatar]="baseUrl + item.attributes.createdBy?.avatar"
+                            [user]="item.attributes.createdBy.firstname + ' ' + item.attributes.createdBy.lastname"
+                            [date]="item.attributes.DisplayDate"
+                            [coverImage]="baseUrl + item.attributes.Image?.data.attributes.formats.medium.url + '?resize=640x250'"
+                            [pageLink]="'/blog/' + item.attributes.Slug + '_' + item.attributes.uuid"
+                        ></blog-post-grid>
+                    </div>
+                    <!-- End Blog -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<section-support></section-support>

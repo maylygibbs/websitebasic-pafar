@@ -1,0 +1,9 @@
+.notices{
+    &__heading{
+        margin-bottom: $padding-component;
+
+        @media #{$media-not-desktop} {
+            margin-bottom: calc($padding-component/2);
+        }
+    }
+}

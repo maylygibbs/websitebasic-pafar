@@ -1,0 +1,54 @@
+<!-- Start Header -->
+<header 
+    *ngIf="!mainService.isDemoPage" 
+    class="header js-header-scroll" 
+    [class.header__white]="!mainService.isInnerPage && mainService.isHeaderWhite" 
+    [class.header__inner]="mainService.isInnerPage">
+    <nav hidden>
+        <div class="nav-header">
+            <a href="javascript:;" routerLink="/" class="brand">
+                <img src="/assets/images/logo-pafar-color.svg" class="logo" [attr.alt]="mainService.siteName" />                
+            </a>
+            <button class="toggle-bar">
+                <span class="fa fa-bars"></span>
+            </button>
+        </div>		
+        <!-- Start Header menu for mobile -->
+        <div class="header__mobile js-header-menu">
+            <a href="javascript:;" class="header__mobile-brand">Menu</a>
+            <button #btnClose class="toggle-bar header__mobile-toggle">
+                <span class="fa fa-remove"></span>
+            </button>
+        </div>
+        <!-- End Header menu for mobile -->	
+        <ul class="menu">
+            <li><a href="javascript:;" (click)="closeMenu()" routerLink="/" routerLinkActive="active">Home</a></li>
+            <li><a href="javascript:;" (click)="closeMenu()" routerLink="/about" routerLinkActive="active">¿Quienes Somos?</a></li>
+            <li><a href="javascript:;" (click)="closeMenu()" routerLink="/services" routerLinkActive="active">Productos y Servicios</a></li>
+            <li><a href="javascript:;" (click)="closeMenu()" routerLink="/alliances" routerLinkActive="active">Alianzas</a></li>
+
+            <li><a href="javascript:;" (click)="closeMenu()" routerLink="/representations" routerLinkActive="active">Representaciones</a></li>
+            <li><a href="javascript:;" (click)="closeMenu()" routerLink="/contact" routerLinkActive="active">Contacto</a></li>
+        </ul>
+        <ul class="attributes" >
+            <li class="header__button" style="visibility: hidden;"><a href="https://themeforest.net/user/99webpage/portfolio" class="btn btn-primary btn-rounded btn-xs btn-header">Try freeeee</a></li>
+            <li class="header__download-icon" style="visibility: hidden;"><a href="https://themeforest.net/user/99webpage/portfolio"><i class="fa fa-download"></i></a></li>
+        </ul>
+    </nav>
+</header>
+<!-- End Header -->
+
+<!-- Start Demo Header -->
+<div *ngIf="mainService.isDemoPage" class="demo__header">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <a href="#" class="demo__header--logo"><img src="/assets/images/logo-pafar-color.svg" class="logo" alt="Smooth" /></a>
+            </div>
+            <div class="col-6">
+                <a href="https://themeforest.net/item/smooth-software-company-landing-page/25485298" class="btn btn-green btn-rounded btn-xs btn-header demo__header--action">Download</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Demo Header -->
