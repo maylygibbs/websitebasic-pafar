@@ -324,7 +324,7 @@ export class MainService {
     // Post Contact Us
     // ======================= //
     postContact(body:any){
-        return this.http.post(`${environment.baseUrl}/account/envio-correo`,body);
+        return this.http.post(`${environment.baseUrl}/account/contactame`,body);
     }
 
     // ======================= //
